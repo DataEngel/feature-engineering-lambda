@@ -9,7 +9,7 @@ def lambda_handler(event, context):
     #SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
     
     s3_client = boto3.client(
-        "s3",
+        "s3"
         #aws_access_key_id=ACCESS_KEY_ID,
         #aws_secret_access_key=SECRET_ACCESS_KEY,
     )
