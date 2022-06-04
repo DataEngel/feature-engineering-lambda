@@ -1,6 +1,6 @@
 import pandas as pd
 import io
-import os
+#import os
 import boto3
 
 def lambda_handler(event, context):
@@ -65,6 +65,7 @@ def lambda_handler(event, context):
     else:
         print(f"Unsuccessful S3 get_object response. Status - {status}")
 
+    return None
 
 event = {}
 
