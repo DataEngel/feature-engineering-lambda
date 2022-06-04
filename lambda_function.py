@@ -5,13 +5,13 @@ import boto3
 
 def lambda_handler(event, context):
     AWS_S3_BUCKET = "engel-tests-20851"
-    #ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-    #SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+    ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+    SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
     
     s3_client = boto3.client(
-        "s3"
-        #aws_access_key_id=ACCESS_KEY_ID,
-        #aws_secret_access_key=SECRET_ACCESS_KEY,
+        "s3", 
+        aws_access_key_id=ACCESS_KEY_ID,
+        aws_secret_access_key=SECRET_ACCESS_KEY,
     )
 
     response = s3_client.get_object(Bucket=AWS_S3_BUCKET, Key="dataset_credit_risk.csv")
@@ -64,6 +64,10 @@ def lambda_handler(event, context):
                 
     else:
         print(f"Unsuccessful S3 get_object response. Status - {status}")
+
+     
+
+    return status
 
 
 event = {}
